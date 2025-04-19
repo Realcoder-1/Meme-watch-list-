@@ -7,13 +7,11 @@
 
 // ========== 1. BACKEND (Node.js + Express) ==========
 
-// backend/index.js
 const express = require('express');
 const cors = require('cors');
-require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = 5000; // Directly hardcoded
 
 app.use(cors());
 app.use(express.json());
@@ -25,30 +23,7 @@ app.get('/api/ping', (req, res) => {
 app.get('/api/watchlist', (req, res) => {
   const mockData = [
     { name: 'DOGE', price: 0.12, volume: 12000000 },
-    { name: 'SHIBA', price: 0.000023, volume: 30000000 },
-  ];
-  res.json(mockData);
-});
-
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
-// backend/.env
-PORT=5000
-
-// backend/package.json
-{
-  "name": "meme-backend",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2"
-  }
-}
+    { name: 'SHIBA', price:
 
 // ========== 2. FRONTEND (Flutter Minimal UI) ==========
 // Will include after initial backend deploy
