@@ -11,7 +11,7 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-const PORT = 5000; // Directly hardcoded
+const PORT = 5000; // hardcoded since .env won't work on free Railway
 
 app.use(cors());
 app.use(express.json());
@@ -23,7 +23,13 @@ app.get('/api/ping', (req, res) => {
 app.get('/api/watchlist', (req, res) => {
   const mockData = [
     { name: 'DOGE', price: 0.12, volume: 12000000 },
-    { name: 'SHIBA', price:
+    { name: 'SHIBA', price: 0.000023, volume: 30000000 },
+  ];
+  res.json(mockData);
+});
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
 
 // ========== 2. FRONTEND (Flutter Minimal UI) ==========
 // Will include after initial backend deploy
